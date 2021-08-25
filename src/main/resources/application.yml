@@ -1,0 +1,6 @@
+spring:
+  application.name: money-raven
+  jpa.hibernate.ddl-auto: validate
+ironbank:
+  те-кто-возвращают-долги:
+    - Ланистеры
