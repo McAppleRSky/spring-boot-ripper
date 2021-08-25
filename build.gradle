@@ -43,6 +43,9 @@ dependencies {
   testImplementation group: 'junit', name: 'junit', version: '4.13.2'
   testImplementation group: 'org.hamcrest', name: 'hamcrest-core', version: '2.2'
 
-
   compile project(':iron-starter')
 }
+
+/*springBoot {
+  executable = true
+}*/
