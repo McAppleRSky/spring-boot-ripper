@@ -12,16 +12,11 @@ import javax.persistence.Id;
 @Data
 @Entity
 public class Bank {
-    @Id
-    long id;
-    long totalAmount;
+  @Id long id;
+  long totalAmount;
 
-    public long getTotalAmount() {
-        return totalAmount;
-    }
-
-    public void credit(long amount){
-        totalAmount -= amount;
-    }
+  public void credit(long amount){
+    totalAmount -= amount;
+  }
 
 }

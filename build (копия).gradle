@@ -1,0 +1,89 @@
+buildscript {
+  /*ext {
+    springBootVersion = '2.5.4'
+//    springCloudVersion = 'Dalston.SR2'
+    springCloudVersion = '2020.0.3'
+  }*/
+  repositories {
+    mavenCentral()
+  }
+  /*dependencies {
+    classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+  }*/
+}
+
+allprojects {
+  apply plugin: 'java'
+//  apply plugin: 'io.spring.dependency-management'
+
+  sourceCompatibility = 1.11
+
+  repositories {
+    mavenCentral()
+  }
+
+  /*dependencyManagement {
+    imports {
+      mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+      mavenBom "org.springframework.boot:spring-boot-dependencies:${springBootVersion}"
+    }
+    dependencies {
+      dependency 'org.projectlombok:lombok:1.18.20' // use newest lombok version
+    }
+  }*/
+
+  dependencies {
+    compileOnly 'org.projectlombok:lombok:1.18.20'
+//    annotationProcessor 'org.projectlombok:lombok'
+  }
+}
+
+configure(rootProject) {
+//  apply plugin: 'org.springframework.boot'
+
+  dependencies {
+//    compile 'org.springframework.boot:spring-boot-starter'
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter', version: '2.5.4'
+//    compile 'org.springframework.boot:spring-boot-starter-actuator'
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-actuator', version: '2.5.4'
+//    compile 'org.springframework.cloud:spring-cloud-starter'
+//    compile 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', version: '2.5.4'
+//    compile 'org.springframework.boot:spring-boot-starter-data-rest'
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-data-rest', version: '2.5.4'
+//    compile 'org.springframework.data:spring-data-rest-hal-browser'
+    implementation group: 'org.springframework.data', name: 'spring-data-rest-hal-browser', version: '3.3.9.RELEASE'
+
+//    compile 'org.springframework.boot:spring-boot-starter-web'
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '2.5.4'
+
+//    compile 'org.flywaydb:flyway-core'
+    implementation group: 'org.flywaydb', name: 'flyway-core', version: '7.14.0'
+
+//    runtime 'com.h2database:h2'
+//    testImplementation group: 'com.h2database', name: 'h2', version: '1.4.200'
+    runtime group: 'com.h2database', name: 'h2', version: '1.4.200'
+
+    compile project(':iron-starter')
+//    compileOnly 'org.projectlombok:lombok'
+//    compileOnly 'org.springframework.boot:spring-boot-configuration-processor'
+//    testCompile 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: '2.5.4'
+
+    compileOnly 'org.projectlombok:lombok:1.18.20'
+    annotationProcessor 'org.projectlombok:lombok'
+  }
+}
+
+subprojects {
+  dependencies {
+    compile 'org.springframework.boot:spring-boot-starter'
+    compileOnly 'org.springframework.boot:spring-boot-configuration-processor'
+    compileOnly 'org.projectlombok:lombok:1.18.20'
+    annotationProcessor 'org.projectlombok:lombok'
+  }
+}
+
+//springBoot {
+//  executable = true
+//}

@@ -1,72 +1,48 @@
-buildscript {
-    ext {
-        springBootVersion = '1.5.7.RELEASE'
-        springCloudVersion = 'Dalston.SR2'
-    }
-    repositories {
-        jcenter()
-    }
-    dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-    }
+apply plugin: 'java'
+//  apply plugin: 'io.spring.dependency-management'
+
+sourceCompatibility = 1.11
+
+repositories {
+  mavenCentral()
 }
 
-allprojects {
-    apply plugin: 'java'
-    apply plugin: 'io.spring.dependency-management'
-
-    sourceCompatibility = 1.11
-
-    repositories {
-        jcenter()
-    }
-
-    dependencyManagement {
-        imports {
-            mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
-            mavenBom "org.springframework.boot:spring-boot-dependencies:${springBootVersion}"
-        }
-        dependencies {
-            dependency 'org.projectlombok:lombok:1.16.18' // use newest lombok version
-        }
-    }
-
-    dependencies {
-        compileOnly 'org.projectlombok:lombok'
-    }
-}
-
-configure(rootProject) {
-    apply plugin: 'org.springframework.boot'
-
-    dependencies {
-        compile 'org.springframework.boot:spring-boot-starter'
-
-        compile 'org.springframework.boot:spring-boot-starter-actuator'
+dependencies {
+//    compile 'org.springframework.boot:spring-boot-starter'
+  implementation group: 'org.springframework.boot', name: 'spring-boot-starter', version: '2.5.4'
+//    compile 'org.springframework.boot:spring-boot-starter-actuator'
+  implementation group: 'org.springframework.boot', name: 'spring-boot-starter-actuator', version: '2.5.4'
 //    compile 'org.springframework.cloud:spring-cloud-starter'
-        compile 'org.springframework.boot:spring-boot-starter-data-jpa'
-        compile 'org.springframework.boot:spring-boot-starter-data-rest'
-        compile 'org.springframework.data:spring-data-rest-hal-browser'
-        compile 'org.springframework.boot:spring-boot-starter-web'
-        compile 'org.flywaydb:flyway-core'
+//    compile 'org.springframework.boot:spring-boot-starter-data-jpa'
+  implementation group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', version: '2.5.4'
+//    compile 'org.springframework.boot:spring-boot-starter-data-rest'
+  implementation group: 'org.springframework.boot', name: 'spring-boot-starter-data-rest', version: '2.5.4'
+//    compile 'org.springframework.data:spring-data-rest-hal-browser'
+  implementation group: 'org.springframework.data', name: 'spring-data-rest-hal-browser', version: '3.3.9.RELEASE'
 
-        compile project(':iron-starter')
-        runtime 'com.h2database:h2'
+//    compile 'org.springframework.boot:spring-boot-starter-web'
+  implementation group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '2.5.4'
 
-        compileOnly 'org.projectlombok:lombok'
-        compileOnly 'org.springframework.boot:spring-boot-configuration-processor'
+//    compile 'org.flywaydb:flyway-core'
+  implementation group: 'org.flywaydb', name: 'flyway-core', version: '7.14.0'
 
-        testCompile 'org.springframework.boot:spring-boot-starter-test'
-    }
-}
+//    runtime 'com.h2database:h2'
+//    testImplementation group: 'com.h2database', name: 'h2', version: '1.4.200'
+  runtime group: 'com.h2database', name: 'h2', version: '1.4.200'
 
-subprojects {
-    dependencies {
-        compile 'org.springframework.boot:spring-boot-starter'
-        compileOnly 'org.springframework.boot:spring-boot-configuration-processor'
-    }
-}
+    testCompile 'org.springframework.boot:spring-boot-starter-test'
+  testImplementation group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: '2.5.4'
 
-springBoot {
-    executable = true
+//    compileOnly 'org.projectlombok:lombok'
+//    compileOnly 'org.springframework.boot:spring-boot-configuration-processor'
+  compileOnly 'org.projectlombok:lombok:1.18.20'
+  annotationProcessor 'org.projectlombok:lombok:1.18.20'
+  implementation group: 'javax.xml.bind', name: 'jaxb-api', version: '2.4.0-b180830.0359'
+
+  testImplementation "org.springframework.boot:spring-boot-starter-test"
+  testImplementation group: 'junit', name: 'junit', version: '4.13.2'
+  testImplementation group: 'org.hamcrest', name: 'hamcrest-core', version: '2.2'
+
+
+  compile project(':iron-starter')
 }

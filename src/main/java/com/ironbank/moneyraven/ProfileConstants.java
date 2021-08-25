@@ -1,4 +1,3 @@
-
 package com.ironbank.moneyraven;
 
 /**
@@ -6,6 +5,6 @@ package com.ironbank.moneyraven;
  * @version 03/11/2017
  */
 public interface ProfileConstants {
-    String ЗИМА_БЛИЗКО = "зимаБлизко";
-    String ЗИМА_ТУТА = "зимаТута";
+  String ЗИМА_БЛИЗКО = "зимаБлизко";
+  String ЗИМА_ТУТА = "зимаТута";
 }

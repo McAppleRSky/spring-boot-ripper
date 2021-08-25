@@ -14,11 +14,11 @@ import org.springframework.stereotype.Service;
 @Profile(ProfileConstants.ЗИМА_ТУТА)
 @RequiredArgsConstructor
 public class WhiteListBasedProphetService implements ProphetService {
-    private final ProphetProperties prophetProperties;
+  private final ProphetProperties prophetProperties;
 
-    @Override
-    public boolean willSurvive(String name) {
-        return prophetProperties.getТеКтоВозвращаютДолги().contains(name);
-    }
+  @Override
+  public boolean willSurvive(String name) {
+    return prophetProperties.getТеКтоВозвращаютДолги().contains(name);
+  }
 
 }

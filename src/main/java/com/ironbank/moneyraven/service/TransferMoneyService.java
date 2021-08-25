@@ -1,10 +1,11 @@
 package com.ironbank.moneyraven.service;
 
-import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
-
+/**
+ * @author tolkv
+ * @since 8/20/2017
+ */
 public interface TransferMoneyService {
 
-    long transfer(String addresseeName, long amount);
+  long transfer(String addresseeName, long amount);
 
 }

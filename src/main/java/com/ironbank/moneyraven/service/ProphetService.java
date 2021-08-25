@@ -1,5 +1,9 @@
 package com.ironbank.moneyraven.service;
 
+/**
+ * @author tolkv
+ * @since 8/20/2017
+ */
 public interface ProphetService {
-    public boolean willSurvive(String name);
+  boolean willSurvive(String name);
 }

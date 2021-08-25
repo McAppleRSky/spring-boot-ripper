@@ -12,5 +12,5 @@ import java.util.List;
 @Data
 @ConfigurationProperties("ironbank")
 public class ProphetProperties {
-    List<String> теКтоВозвращаютДолги;
+  List<String> теКтоВозвращаютДолги;
 }
