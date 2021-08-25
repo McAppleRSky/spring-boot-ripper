@@ -10,10 +10,9 @@ import java.util.List;
  * @version 03/11/2017
  */
 
-@Data
+//@Data
 @ConfigurationProperties("ворон")
 public class RavenProperties {
-/*
   public boolean isВкл() {
     return вкл;
   }
@@ -29,7 +28,6 @@ public class RavenProperties {
   public void setКудаЛететь(List<String> кудаЛететь) {
     this.кудаЛететь = кудаЛететь;
   }
-*/
 
   boolean вкл;
   List<String> кудаЛететь;

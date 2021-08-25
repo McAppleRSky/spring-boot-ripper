@@ -7,6 +7,8 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.ConfigurableApplicationContext;
 
+// https://github.com/lavcraft/spring-boot-ripper-gradle
+
 @SpringBootApplication
 @EnableConfigurationProperties(ProphetProperties.class)
 public class MoneyRavenApplication {

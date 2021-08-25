@@ -3,6 +3,7 @@ package com.ironbank.moneyraven.service;
 import com.ironbank.moneyraven.ProfileConstants;
 import com.ironbank.moneyraven.model.ProphetProperties;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
@@ -12,8 +13,9 @@ import org.springframework.stereotype.Service;
  */
 @Service
 @Profile(ProfileConstants.ЗИМА_ТУТА)
-@RequiredArgsConstructor
+//@RequiredArgsConstructor
 public class WhiteListBasedProphetService implements ProphetService {
+
   private final ProphetProperties prophetProperties;
 
   @Override
@@ -21,4 +23,7 @@ public class WhiteListBasedProphetService implements ProphetService {
     return prophetProperties.getТеКтоВозвращаютДолги().contains(name);
   }
 
+  public WhiteListBasedProphetService(ProphetProperties prophetProperties) {
+    this.prophetProperties = prophetProperties;
+  }
 }

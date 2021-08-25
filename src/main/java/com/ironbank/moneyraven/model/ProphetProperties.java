@@ -9,8 +9,15 @@ import java.util.List;
  * @author tolkv
  * @since 9/17/2017
  */
-@Data
 @ConfigurationProperties("ironbank")
 public class ProphetProperties {
   List<String> теКтоВозвращаютДолги;
+
+  public List<String> getТеКтоВозвращаютДолги() {
+    return теКтоВозвращаютДолги;
+  }
+
+  public void setТеКтоВозвращаютДолги(List<String> теКтоВозвращаютДолги) {
+    this.теКтоВозвращаютДолги = теКтоВозвращаютДолги;
+  }
 }
